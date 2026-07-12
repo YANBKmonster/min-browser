@@ -36,7 +36,10 @@ function createWindow() {
     if (webview) webview.webContents.reload()
   })
 
-  ipcMain.on('set-lang', (_, lang) => { currentLang = lang })
+  ipcMain.on('set-lang', (_, lang) => {
+    currentLang = lang
+    mainWindow.webContents.send('lang-changed', lang)
+  })
 
   ipcMain.on('open-help', () => {
     if (webview) webview.webContents.loadURL(`file://${path.join(__dirname, 'help.html').replace(/\\/g, '/')}?lang=${currentLang}`)

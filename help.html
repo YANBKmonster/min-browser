@@ -27,10 +27,16 @@
     }
     .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;
               font-size: 13px; color: #888; text-align: center; }
+    #lang-switch { text-align: right; margin-bottom: 20px; }
+    #lang-switch a {
+      color: #4a90d9; text-decoration: none; font-size: 14px; cursor: pointer;
+    }
+    #lang-switch a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <div class="container" id="zh">
+    <div id="lang-switch"><a id="switch-to-en">English</a></div>
     <h1>MinBrowser 帮助</h1>
     <p style="color:#666;">版本 1.1.1 | 基于 Electron + Chromium 内核</p>
 
@@ -40,7 +46,6 @@
       <li>点击 <kbd>◀</kbd> <kbd>▶</kbd> 按钮前进或后退浏览历史</li>
       <li>点击 <kbd>↻</kbd> 按钮刷新当前页面</li>
       <li>点击 <kbd>?</kbd> 按钮打开本帮助页面</li>
-      <li>点击 <kbd>EN</kbd> 按钮切换中英文界面</li>
     </ul>
 
     <h2>默认首页</h2>
@@ -66,6 +71,7 @@
   </div>
 
   <div class="container" id="en" style="display:none">
+    <div id="lang-switch"><a id="switch-to-zh">中文</a></div>
     <h1>MinBrowser Help</h1>
     <p style="color:#666;">Version 1.1.1 | Built on Electron + Chromium</p>
 
@@ -75,7 +81,6 @@
       <li>Click <kbd>◀</kbd> <kbd>▶</kbd> to go back or forward in history</li>
       <li>Click <kbd>↻</kbd> to reload the current page</li>
       <li>Click <kbd>?</kbd> to open this help page</li>
-      <li>Click <kbd>中</kbd> to switch between Chinese and English</li>
     </ul>
 
     <h2>Default Homepage</h2>
@@ -102,9 +107,26 @@
 
   <script>
     const lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang') || 'zh'
+
+    function switchLang(newLang) {
+      localStorage.setItem('lang', newLang)
+      if (window.browserAPI && window.browserAPI.setLang) {
+        window.browserAPI.setLang(newLang)
+      }
+      location.search = '?lang=' + newLang
+    }
+
     document.getElementById('zh').style.display = lang === 'zh' ? '' : 'none'
     document.getElementById('en').style.display = lang === 'en' ? '' : 'none'
     document.title = lang === 'zh' ? '帮助 - MinBrowser' : 'Help - MinBrowser'
+
+    const switchTo = document.getElementById(lang === 'zh' ? 'switch-to-en' : 'switch-to-zh')
+    if (switchTo) {
+      switchTo.addEventListener('click', (e) => {
+        e.preventDefault()
+        switchLang(lang === 'zh' ? 'en' : 'zh')
+      })
+    }
   </script>
 </body>
 </html>

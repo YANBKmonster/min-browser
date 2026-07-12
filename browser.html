@@ -15,10 +15,6 @@
       border-radius: 4px; font-size: 16px; background: transparent;
     }
     #toolbar button:hover { background: #ddd; }
-    #lang-btn {
-      font-size: 12px !important; font-weight: bold;
-      width: 36px !important; color: #4a90d9;
-    }
     #address-bar {
       flex: 1; height: 32px; padding: 0 10px; border: 1px solid #bbb;
       border-radius: 16px; font-size: 13px; outline: none;
@@ -34,18 +30,17 @@
     <input id="address-bar" type="text" placeholder="输入网址..." />
     <button id="go-btn" title="前往">前往</button>
     <button id="help-btn" title="帮助">?</button>
-    <button id="lang-btn">EN</button>
   </div>
 
   <script>
     const i18n = {
       zh: {
         back: '后退', forward: '前进', reload: '刷新',
-        go: '前往', help: '帮助', placeholder: '输入网址...', langBtn: 'EN',
+        go: '前往', help: '帮助', placeholder: '输入网址...',
       },
       en: {
         back: 'Back', forward: 'Forward', reload: 'Reload',
-        go: 'Go', help: 'Help', placeholder: 'Enter URL...', langBtn: '中',
+        go: 'Go', help: 'Help', placeholder: 'Enter URL...',
       }
     }
 
@@ -61,8 +56,6 @@
       document.getElementById('help-btn').title = i18n[lang].help
       document.getElementById('address-bar').placeholder = i18n[lang].placeholder
       document.getElementById('go-btn').textContent = i18n[lang].go
-      document.getElementById('lang-btn').textContent = i18n[lang].langBtn
-      window.browserAPI.setLang(lang)
     }
 
     const addressBar = document.getElementById('address-bar')
@@ -89,12 +82,13 @@
     fwdBtn.addEventListener('click', () => window.browserAPI.goForward())
     reloadBtn.addEventListener('click', () => window.browserAPI.reload())
     document.getElementById('help-btn').addEventListener('click', () => window.browserAPI.openHelp())
-    document.getElementById('lang-btn').addEventListener('click', () => {
-      applyI18n(currentLang === 'zh' ? 'en' : 'zh')
-    })
 
     window.browserAPI.onUrlChanged((url) => {
       addressBar.value = url
+    })
+
+    window.browserAPI.onLangChanged((lang) => {
+      applyI18n(lang)
     })
 
     applyI18n(currentLang)
