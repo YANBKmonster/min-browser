@@ -9,4 +9,5 @@ contextBridge.exposeInMainWorld('browserAPI', {
   createWebview: () => ipcRenderer.send('create-webview'),
   resizeWebview: () => ipcRenderer.send('resize-webview'),
   onUrlChanged: (callback) => ipcRenderer.on('url-changed', (_, url) => callback(url)),
+  openHelp: () => ipcRenderer.send('open-help'),
 })

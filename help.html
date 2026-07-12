@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>帮助 - MinBrowser</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.8;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 800px; margin: 0 auto;
+      background: #fff; border-radius: 12px;
+      padding: 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    h1 { font-size: 28px; margin-bottom: 8px; color: #1a1a1a; }
+    h2 { font-size: 20px; margin-top: 32px; margin-bottom: 12px;
+         padding-bottom: 6px; border-bottom: 2px solid #4a90d9; color: #1a1a1a; }
+    p { margin-bottom: 12px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    code {
+      background: #eef; padding: 2px 8px; border-radius: 4px;
+      font-size: 14px; font-family: 'Cascadia Code', 'Consolas', monospace;
+    }
+    .shortcut { display: inline-block; min-width: 120px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;
+              font-size: 13px; color: #888; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MinBrowser 帮助</h1>
+    <p style="color:#666;">版本 1.1.0 | 基于 Electron + Chromium 内核</p>
+
+    <h2>基本操作</h2>
+    <ul>
+      <li>在地址栏输入网址，按 <kbd>Enter</kbd> 或点击「前往」按钮打开网页</li>
+      <li>点击 <kbd>◀</kbd> <kbd>▶</kbd> 按钮前进或后退浏览历史</li>
+      <li>点击 <kbd>↻</kbd> 按钮刷新当前页面</li>
+      <li>点击 <kbd>?</kbd> 按钮打开本帮助页面</li>
+    </ul>
+
+    <h2>默认首页</h2>
+    <p>默认打开必应中国搜索（<code>cn.bing.com</code>），启动即搜。</p>
+
+    <h2>键盘快捷键</h2>
+    <ul>
+      <li><span class="shortcut"><kbd>F5</kbd> 或 <kbd>Ctrl+R</kbd></span> 刷新页面</li>
+      <li><span class="shortcut"><kbd>Alt+←</kbd></span> 后退</li>
+      <li><span class="shortcut"><kbd>Alt+→</kbd></span> 前进</li>
+      <li><span class="shortcut"><kbd>Ctrl+L</kbd> 或 <kbd>F6</kbd></span> 聚焦地址栏</li>
+      <li><span class="shortcut"><kbd>F11</kbd></span> 全屏模式</li>
+    </ul>
+
+    <h2>关于 MinBrowser</h2>
+    <p>MinBrowser 是一个极简开源的 Windows 浏览器，基于 Electron 构建，使用 Chromium 内核，轻量、快速、无广告。</p>
+    <ul>
+      <li><strong>GitHub</strong>：<a href="https://github.com/YANBKmonster/min-browser">https://github.com/YANBKmonster/min-browser</a></li>
+      <li><strong>许可证</strong>：MIT License</li>
+    </ul>
+    <p>欢迎 Star、提 Issue 或贡献代码！</p>
+
+    <div class="footer">MinBrowser 1.1.0 — Made with ❤️</div>
+  </div>
+</body>
+</html>

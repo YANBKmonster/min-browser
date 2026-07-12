@@ -35,6 +35,10 @@ function createWindow() {
     if (webview) webview.webContents.reload()
   })
 
+  ipcMain.on('open-help', () => {
+    if (webview) webview.webContents.loadURL(`file://${path.join(__dirname, 'help.html').replace(/\\/g, '/')}`)
+  })
+
   ipcMain.on('stop', () => {
     if (webview) webview.webContents.stop()
   })
@@ -53,7 +57,7 @@ function createWindow() {
 
     mainWindow.addBrowserView(webview)
     resizeWebview()
-    webview.webContents.loadURL('https://www.google.com')
+    webview.webContents.loadURL('https://cn.bing.com')
 
     webview.webContents.on('page-title-updated', (_, title) => {
       mainWindow.setTitle(title)
