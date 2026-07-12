@@ -7,9 +7,14 @@
 
 一个极简的 Chromium 浏览器，基于 Electron 构建。
 
-## 截图
+## 下载
 
-![截图](screenshots/screenshot.png)
+从 [Releases](https://github.com/YANBKmonster/min-browser/releases) 页面下载最新版本：
+
+| 文件 | 说明 |
+|------|------|
+| `MinBrowser-*-Setup.exe` | 安装包（推荐） |
+| `MinBrowser-*-portable.zip` | 便携版（解压即用） |
 
 ## 功能
 
