@@ -9,7 +9,7 @@
 
 ## 截图
 
-*(可以在这里放一张浏览器截图)*
+![截图](screenshots/screenshot.png)
 
 ## 功能
 
