@@ -1,5 +1,7 @@
 # MinBrowser
 
+[🌏 English](README.en.md) | [中文](README.md)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Electron](https://img.shields.io/badge/Electron-33+-47848F?logo=electron&logoColor=white)](https://electronjs.org)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6)](https://github.com/YANBKmonster/min-browser)
