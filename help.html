@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>帮助 - MinBrowser</title>
+  <title>Help - MinBrowser</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-      background: #f5f5f5;
-      color: #333;
-      line-height: 1.8;
-      padding: 40px 20px;
+      background: #f5f5f5; color: #333; line-height: 1.8; padding: 40px 20px;
     }
     .container {
       max-width: 800px; margin: 0 auto;
@@ -28,15 +25,14 @@
       background: #eef; padding: 2px 8px; border-radius: 4px;
       font-size: 14px; font-family: 'Cascadia Code', 'Consolas', monospace;
     }
-    .shortcut { display: inline-block; min-width: 120px; }
     .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;
               font-size: 13px; color: #888; text-align: center; }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="zh">
     <h1>MinBrowser 帮助</h1>
-    <p style="color:#666;">版本 1.1.0 | 基于 Electron + Chromium 内核</p>
+    <p style="color:#666;">版本 1.1.1 | 基于 Electron + Chromium 内核</p>
 
     <h2>基本操作</h2>
     <ul>
@@ -44,6 +40,7 @@
       <li>点击 <kbd>◀</kbd> <kbd>▶</kbd> 按钮前进或后退浏览历史</li>
       <li>点击 <kbd>↻</kbd> 按钮刷新当前页面</li>
       <li>点击 <kbd>?</kbd> 按钮打开本帮助页面</li>
+      <li>点击 <kbd>EN</kbd> 按钮切换中英文界面</li>
     </ul>
 
     <h2>默认首页</h2>
@@ -51,11 +48,11 @@
 
     <h2>键盘快捷键</h2>
     <ul>
-      <li><span class="shortcut"><kbd>F5</kbd> 或 <kbd>Ctrl+R</kbd></span> 刷新页面</li>
-      <li><span class="shortcut"><kbd>Alt+←</kbd></span> 后退</li>
-      <li><span class="shortcut"><kbd>Alt+→</kbd></span> 前进</li>
-      <li><span class="shortcut"><kbd>Ctrl+L</kbd> 或 <kbd>F6</kbd></span> 聚焦地址栏</li>
-      <li><span class="shortcut"><kbd>F11</kbd></span> 全屏模式</li>
+      <li><kbd>F5</kbd> 或 <kbd>Ctrl+R</kbd> 刷新页面</li>
+      <li><kbd>Alt+←</kbd> 后退</li>
+      <li><kbd>Alt+→</kbd> 前进</li>
+      <li><kbd>Ctrl+L</kbd> 或 <kbd>F6</kbd> 聚焦地址栏</li>
+      <li><kbd>F11</kbd> 全屏模式</li>
     </ul>
 
     <h2>关于 MinBrowser</h2>
@@ -65,8 +62,49 @@
       <li><strong>许可证</strong>：MIT License</li>
     </ul>
     <p>欢迎 Star、提 Issue 或贡献代码！</p>
-
-    <div class="footer">MinBrowser 1.1.0 — Made with ❤️</div>
+    <div class="footer">MinBrowser 1.1.1 — Made with ❤️</div>
   </div>
+
+  <div class="container" id="en" style="display:none">
+    <h1>MinBrowser Help</h1>
+    <p style="color:#666;">Version 1.1.1 | Built on Electron + Chromium</p>
+
+    <h2>Basic Usage</h2>
+    <ul>
+      <li>Type a URL in the address bar, press <kbd>Enter</kbd> or click <kbd>Go</kbd> to navigate</li>
+      <li>Click <kbd>◀</kbd> <kbd>▶</kbd> to go back or forward in history</li>
+      <li>Click <kbd>↻</kbd> to reload the current page</li>
+      <li>Click <kbd>?</kbd> to open this help page</li>
+      <li>Click <kbd>中</kbd> to switch between Chinese and English</li>
+    </ul>
+
+    <h2>Default Homepage</h2>
+    <p>Opens Bing China (<code>cn.bing.com</code>) by default — search right away on startup.</p>
+
+    <h2>Keyboard Shortcuts</h2>
+    <ul>
+      <li><kbd>F5</kbd> or <kbd>Ctrl+R</kbd> Reload page</li>
+      <li><kbd>Alt+←</kbd> Go back</li>
+      <li><kbd>Alt+→</kbd> Go forward</li>
+      <li><kbd>Ctrl+L</kbd> or <kbd>F6</kbd> Focus address bar</li>
+      <li><kbd>F11</kbd> Full screen</li>
+    </ul>
+
+    <h2>About MinBrowser</h2>
+    <p>MinBrowser is a minimal open-source Windows browser built on Electron with the Chromium engine. Lightweight, fast, and ad-free.</p>
+    <ul>
+      <li><strong>GitHub</strong>：<a href="https://github.com/YANBKmonster/min-browser">https://github.com/YANBKmonster/min-browser</a></li>
+      <li><strong>License</strong>：MIT License</li>
+    </ul>
+    <p>Star, Issue, and PR are welcome!</p>
+    <div class="footer">MinBrowser 1.1.1 — Made with ❤️</div>
+  </div>
+
+  <script>
+    const lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang') || 'zh'
+    document.getElementById('zh').style.display = lang === 'zh' ? '' : 'none'
+    document.getElementById('en').style.display = lang === 'en' ? '' : 'none'
+    document.title = lang === 'zh' ? '帮助 - MinBrowser' : 'Help - MinBrowser'
+  </script>
 </body>
 </html>

@@ -7,6 +7,7 @@ if (process.platform === 'win32') {
 
 let mainWindow
 let webview
+let currentLang = 'zh'
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -35,8 +36,10 @@ function createWindow() {
     if (webview) webview.webContents.reload()
   })
 
+  ipcMain.on('set-lang', (_, lang) => { currentLang = lang })
+
   ipcMain.on('open-help', () => {
-    if (webview) webview.webContents.loadURL(`file://${path.join(__dirname, 'help.html').replace(/\\/g, '/')}`)
+    if (webview) webview.webContents.loadURL(`file://${path.join(__dirname, 'help.html').replace(/\\/g, '/')}?lang=${currentLang}`)
   })
 
   ipcMain.on('stop', () => {
