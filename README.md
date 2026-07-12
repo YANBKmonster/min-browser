@@ -9,7 +9,7 @@
 
 ## 截图
 
-![截图](screenshots/screenshot.png)
+![截图](https://cdn.jsdelivr.net/gh/YANBKmonster/min-browser/screenshots/screenshot.png)
 
 ## 功能
 
